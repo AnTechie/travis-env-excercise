@@ -15,9 +15,9 @@ before_script:
 
 script:
   - docker --version # print the version for logging
-  - docker build -t simple-node .
-  - docker tag simple-node dockertanj/simple-node:latest
+  - docker build -t travis-ci .
+  - docker tag travis-ci dockertanj/travis-ci:latest
 
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push dockertanj/simple-node
+  - docker push dockertanj/travis-ci
